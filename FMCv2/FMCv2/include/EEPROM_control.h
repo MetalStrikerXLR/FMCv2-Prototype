@@ -4,14 +4,12 @@
 #include "ti_fee.h"
 
 uint16 Status;
-unsigned char read_data[10]={0};
-uint8 SpecialRamBlock[10];
+unsigned char read_data[2]={0};
+uint8 SpecialRamBlock[2] = {0};
 
-unsigned int BlockNumber = 0x1;
 unsigned int BlockOffset = 0;
 unsigned int Length = 0xFFFF;
 unsigned char *Read_Ptr=read_data;
-unsigned int loop;
 
 void delay(void);
 
@@ -25,22 +23,27 @@ void initializeEEPROM(void)
         Status=TI_Fee_GetStatus(0 );
     }
     while(Status!= IDLE);
-    Serialprintln("FEE initialized...");
 }
 
-void updateEEPROM()
+void updateEEPROM(unsigned int block_num, uint8 value)
 {
-    TI_Fee_WriteSync(BlockNumber, &SpecialRamBlock[0]);
+    SpecialRamBlock[0] = value;
+    TI_Fee_WriteSync(block_num, &SpecialRamBlock[0]);
+    SpecialRamBlock[0] = 0;
+    SpecialRamBlock[1] = 0;
 }
 
-void readEEPROM()
+unsigned char readEEPROM(unsigned int block_num)
 {
-    TI_Fee_ReadSync(BlockNumber,BlockOffset,Read_Ptr,Length);
+    read_data[0] = 0;
+    read_data[1] = 0;
+    TI_Fee_ReadSync(block_num,BlockOffset,Read_Ptr,Length);
+    return read_data[0];
 }
 
-void invalidateEPROM()
+void invalidateEPROM(unsigned int block_num)
 {
-    TI_Fee_InvalidateBlock(BlockNumber);
+    TI_Fee_InvalidateBlock(block_num);
     do
     {
         TI_Fee_MainFunction();

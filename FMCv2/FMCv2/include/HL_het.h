@@ -361,13 +361,13 @@ typedef struct het_config_reg
 								| (uint32)0x00000000U \
 								| (uint32)0x00000000U \
 								| (uint32)0x00000000U \
+								| (uint32)0x00000080U \
 								| (uint32)0x00000000U \
+								| (uint32)0x00000020U \
 								| (uint32)0x00000000U \
+								| (uint32)0x00000008U \
 								| (uint32)0x00000000U \
-								| (uint32)0x00000000U \
-								| (uint32)0x00000000U \
-								| (uint32)0x00000000U \
-								| (uint32)0x00000000U \
+								| (uint32)0x00000002U \
 								| (uint32)0x00000000U)
 
 #define HET1_PDR_CONFIGVALUE     ((uint32)0x00000000U \

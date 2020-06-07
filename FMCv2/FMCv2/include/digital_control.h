@@ -34,13 +34,8 @@ void initializeGIO()
 {
     gioInit();
 
-    gioSetBit(gioPORTB,1,0); //Pump 1
-    gioSetBit(gioPORTB,2,0); //Pump 2
-
-    gioSetBit(gioPORTB,4,0); //Valve 1
-    gioSetBit(gioPORTB,5,0); //Valve 2
-    gioSetBit(gioPORTB,6,0); //Valve 3
-    gioSetBit(gioPORTB,7,0); //Valve 4
+    gioSetBit(gioPORTB,6,0); //Pump 2
+    gioSetBit(gioPORTB,7,0); //Pump 1
 
     gioEnableNotification(gioPORTA, 0);
 }
@@ -48,7 +43,12 @@ void initializeGIO()
 void initializeNHET()
 {
     hetInit();
-    gioSetDirection(hetPORT1, 0x00000000);
+
+    gioSetBit(hetPORT1, 1, 0); // SVl 1 - LFT
+    gioSetBit(hetPORT1, 3, 0); // SVL 2 - RHT
+    gioSetBit(hetPORT1, 5, 0); // SVL 3
+    gioSetBit(hetPORT1, 7, 0); // SVL 4
+
     edgeEnableNotification (hetREG1, 0);
 }
 
@@ -66,12 +66,12 @@ void triggerFTRP(int state)
 {
     if(state == 1)
     {
-        gioSetBit(gioPORTB,1,1);
+        gioSetBit(gioPORTB,7,1);
         FWD_to_REAR_pump_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,1,0);
+        gioSetBit(gioPORTB,7,0);
         FWD_to_REAR_pump_state = 0;
     }
 }
@@ -80,12 +80,12 @@ void triggerRTFP(int state)
 {
     if(state == 1)
     {
-        gioSetBit(gioPORTB,2,1);
+        gioSetBit(gioPORTB,6,1);
         REAR_to_FWD_pump_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,2,0);
+        gioSetBit(gioPORTB,6,0);
         REAR_to_FWD_pump_state = 0;
     }
 }
@@ -94,12 +94,12 @@ void triggerLTV(int state)
 {
     if(state == 1)
     {
-        gioSetBit(gioPORTB,4,1);
+        gioSetBit(hetPORT1, 1, 1);
         LTW_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,4,0);
+        gioSetBit(hetPORT1, 1, 0);
         LTW_Svalve_state = 0;
     }
 }
@@ -108,12 +108,12 @@ void triggerRTV(int state)
 {
     if(state == 1)
     {
-        gioSetBit(gioPORTB,5,1);
+        gioSetBit(hetPORT1, 3, 1);
         RTW_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,5,0);
+        gioSetBit(hetPORT1, 3, 0);
         RTW_Svalve_state = 0;
     }
 }
@@ -122,26 +122,26 @@ void triggerNO1V(int state)
 {
     if(state == 1)
     {
-        gioSetBit(gioPORTB,6,1);
+        gioSetBit(hetPORT1, 5, 1);
         NOPEN1_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,6,0);
+        gioSetBit(hetPORT1, 5, 0);
         NOPEN1_Svalve_state = 0;
     }
 }
 
 void triggerNO2V(int state)
 {
-    if(state == 2)
+    if(state == 1)
     {
-        gioSetBit(gioPORTB,7,1);
+        gioSetBit(hetPORT1, 7, 1);
         NOPEN2_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,7,0);
+        gioSetBit(hetPORT1, 7, 0);
         NOPEN2_Svalve_state = 0;
     }
 }
@@ -150,67 +150,67 @@ void manualControlUpdate()
 {
     if(M_FTRP_State == 1)
     {
-        gioSetBit(gioPORTB,1,1);
+        gioSetBit(gioPORTB,7,1);
         FWD_to_REAR_pump_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,1,0);
+        gioSetBit(gioPORTB,7,0);
         FWD_to_REAR_pump_state = 0;
     }
 
     if(M_RTFP_State == 1)
     {
-        gioSetBit(gioPORTB,2,1);
+        gioSetBit(gioPORTB,6,1);
         REAR_to_FWD_pump_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,2,0);
+        gioSetBit(gioPORTB,6,0);
         REAR_to_FWD_pump_state = 0;
     }
 
     if(M_LTWS_State == 1)
     {
-        gioSetBit(gioPORTB,4,1);
+        gioSetBit(hetPORT1, 1, 1);
         LTW_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,4,0);
+        gioSetBit(hetPORT1, 1, 0);
         LTW_Svalve_state = 0;
     }
 
-    if(M_LTWS_State == 1)
+    if(M_RTWS_State == 1)
     {
-        gioSetBit(gioPORTB,5,1);
+        gioSetBit(hetPORT1, 3, 1);
         RTW_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,5,0);
+        gioSetBit(hetPORT1, 3, 0);
         RTW_Svalve_state = 0;
     }
 
     if(M_NO1S_State == 1)
     {
-        gioSetBit(gioPORTB,6,1);
+        gioSetBit(hetPORT1, 5, 1);
         NOPEN1_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,6,0);
+        gioSetBit(hetPORT1, 5, 0);
         NOPEN1_Svalve_state = 0;
     }
 
     if(M_NO2S_State == 2)
     {
-        gioSetBit(gioPORTB,7,1);
+        gioSetBit(hetPORT1, 7, 1);
         NOPEN2_Svalve_state = 1;
     }
     else
     {
-        gioSetBit(gioPORTB,7,0);
+        gioSetBit(hetPORT1, 7, 0);
         NOPEN2_Svalve_state = 0;
     }
 }

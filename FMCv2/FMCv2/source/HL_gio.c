@@ -134,11 +134,11 @@ void gioInit(void)
 
     /** - Port B direction */
     gioPORTB->DIR  = (uint32)((uint32)0U << 0U)  /* Bit 0 */
-                   | (uint32)((uint32)1U << 1U)  /* Bit 1 */
-                   | (uint32)((uint32)1U << 2U)  /* Bit 2 */
+                   | (uint32)((uint32)0U << 1U)  /* Bit 1 */
+                   | (uint32)((uint32)0U << 2U)  /* Bit 2 */
                    | (uint32)((uint32)0U << 3U)  /* Bit 3 */
-                   | (uint32)((uint32)1U << 4U)  /* Bit 4 */
-                   | (uint32)((uint32)1U << 5U)  /* Bit 5 */
+                   | (uint32)((uint32)0U << 4U)  /* Bit 4 */
+                   | (uint32)((uint32)0U << 5U)  /* Bit 5 */
                    | (uint32)((uint32)1U << 6U)  /* Bit 6 */
                    | (uint32)((uint32)1U << 7U); /* Bit 7 */
 
@@ -221,7 +221,7 @@ void gioInit(void)
     gioREG->FLG = 0xFFU;
 
     /** - enable interrupts */
-    gioREG->ENASET = (uint32)((uint32)1U << 0U)   /* Bit 0 */
+    gioREG->ENASET = (uint32)((uint32)0U << 0U)   /* Bit 0 */
                    | (uint32)((uint32)0U << 1U)   /* Bit 1 */
                    | (uint32)((uint32)0U << 2U)   /* Bit 2 */
                    | (uint32)((uint32)0U << 3U)   /* Bit 3 */
@@ -235,8 +235,8 @@ void gioInit(void)
                    | (uint32)((uint32)0U << 11U)  /* Bit 11 */
                    | (uint32)((uint32)0U << 12U)  /* Bit 12 */
                    | (uint32)((uint32)0U << 13U)  /* Bit 13 */
-                   | (uint32)((uint32)0U << 14U)  /* Bit 14 */
-                   | (uint32)((uint32)0U << 15U); /* Bit 15 */
+                   | (uint32)((uint32)1U << 14U)  /* Bit 14 */
+                   | (uint32)((uint32)1U << 15U); /* Bit 15 */
 
 /* USER CODE BEGIN (4) */
 /* USER CODE END */

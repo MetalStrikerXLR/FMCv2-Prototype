@@ -39,10 +39,19 @@ long long MAIN_Flow_pres = 0;     //PSMFL
 long long Fuel_flow_LM = 0;     //FFS
 float Fuel_flow_GH = 0;
 
-void calcPercent();
+long long FWD_min = 0;
+long long FWD_max = 0;
+long long MID_min = 0;
+long long MID_max = 0;
+long long Rear_min = 0;
+long long Rear_max = 0;
+long long LT_min = 0;
+long long LT_max = 0;
+long long RT_min = 0;
+long long RT_max = 0;
+
 void calcMass();
 void calcVol();
-void calcLvL();
 
 unsigned int int_to_bin(unsigned int k)
 {
@@ -58,10 +67,31 @@ void initializeRTI()
 
 void processFuelData(float fsen1_v, float fsen2_v, float fsen3_v, float fsen4_v, float fsen5_v)
 {
-    calcPercent();
+    FWD_min = readEEPROM(0x1);
+    FWD_max = readEEPROM(0x2);
+    MID_min = readEEPROM(0x3);
+    MID_max = readEEPROM(0x4);
+    Rear_min = readEEPROM(0x5);
+    Rear_max = readEEPROM(0x6);
+    LT_min = readEEPROM(0x7);
+    LT_max = readEEPROM(0x8);
+    RT_min = readEEPROM(0x9);
+    RT_max = readEEPROM(0xA);
+
+    Tank_FWD_per = ((fsen1_v - FWD_min)*100)/(FWD_max - FWD_min);
+    Tank_MID_per = ((fsen2_v - MID_min)*100)/(MID_max - MID_min);
+    Tank_REAR_per = ((fsen3_v - Rear_min)*100)/(Rear_max - Rear_min);
+    Tank_LT_per = ((fsen4_v - LT_min)*100)/(LT_max - LT_min);
+    Tank_RT_per = ((fsen5_v - RT_min)*100)/(RT_max - RT_min);
+
+    Tank_FWD_lvl = (Tank_FWD_per * 330)/100;
+    Tank_MID_lvl = (Tank_MID_per * 540)/100;
+    Tank_REAR_lvl = (Tank_REAR_per * 290)/100;
+    Tank_LT_lvl = (Tank_LT_per * 240)/100;
+    Tank_RT_lvl = (Tank_RT_per * 240)/100;
+
     calcMass();
     calcVol();
-    calcLvL();
 }
 
 void processTempData(float tsen_v)
@@ -83,8 +113,6 @@ void processFuelFlow(int pulses)
     Fuel_flow_LM = (Fuel_flow_GH/15.85) * 100;
 }
 
-void calcPercent()
-{}
 
 void calcMass()
 {}
@@ -92,6 +120,4 @@ void calcMass()
 void calcVol()
 {}
 
-void calcLvL()
-{}
 #endif

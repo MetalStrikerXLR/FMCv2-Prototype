@@ -103,7 +103,7 @@ const Fee_BlockConfigType Fee_BlockConfiguration[TI_FEE_NUMBER_OF_BLOCKS] =
         /*      Block 1 */
         {
                /* Block number                          */     1U, 
-               /* Block size                            */     10U,
+               /* Block size                            */     2U,
                /* Block immediate data used             */     TRUE,			   
                /* Number of write cycles                */     0x8U,
                /* Device Index                          */     0x00000000U,
@@ -111,6 +111,105 @@ const Fee_BlockConfigType Fee_BlockConfiguration[TI_FEE_NUMBER_OF_BLOCKS] =
                /* EEP number                            */     0U			   
         }
 
+        ,
+        /*      Block 2 */
+        {
+               /* Block number                          */     2U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,		   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 3 */
+        {
+               /* Block number                          */     3U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 4 */
+        {
+               /* Block number                          */     4U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 5 */
+        {
+               /* Block number                          */     5U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 6 */
+        {
+               /* Block number                          */     6U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 7 */
+        {
+               /* Block number                          */     7U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 8 */
+        {
+               /* Block number                          */     8U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 9 */
+        {
+               /* Block number                          */     9U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,			   
+               /* EEP number                            */     0U			   
+        }
+        ,
+        /*      Block 10 */
+        {
+               /* Block number                          */     10U, 
+               /* Block size                            */     2U,
+               /* Block immediate data used             */     TRUE,			   
+               /* Number of write cycles                */     0x8U,
+               /* Device Index                          */     0x00000000U,
+               /* Number of DataSets                    */     1U,		   
+               /* EEP number                            */     0U			   
+        }
 		,
 		/* If project needs more than 16 blocks, add additional blocks here and also 
            modify TI_FEE_TOTAL_BLOCKS_DATASETS and TI_FEE_NUMBER_OF_BLOCKS in ti_fee_cfg.h 	*/

@@ -28,7 +28,115 @@ int FSC7 = 0;    // Level Sensor Right Wing Error
 int SACT_status = 0;
 int ControlM_status = 0;
 
-void updateStatus()
-{}
+void updateSysStatus()
+{
+    if(total_vol < 70)
+    {
+        SFS = 1;
+    }
+    else
+    {
+        SFS = 0;
+    }
+
+    if(MAIN_Flow_pres < 30)
+    {
+        FFPL = 1;
+    }
+    else
+    {
+        FFPL = 0;
+    }
+
+    if(MAIN_Flow_pres > 38)
+    {
+        FFPH = 1;
+    }
+    else
+    {
+        FFPH = 0;
+    }
+
+    if(VENT_Sen_pres > 15)
+    {
+        VLPH = 1;
+    }
+    else
+    {
+        VLPH = 0;
+    }
+
+    if(FWD_to_REAR_pres > 15)
+    {
+        TL1PH = 1;
+    }
+    else
+    {
+        TL1PH = 0;
+    }
+
+    if(REAR_to_FWD_pres > 15)
+    {
+        TL2PH = 1;
+    }
+    else
+    {
+        TL2PH = 0;
+    }
+
+    if(Sys_temp > 65)
+    {
+        SFTH = 1;
+    }
+    else
+    {
+        SFTH = 0;
+    }
+
+    if(Sys_temp < 0)
+    {
+        SFTL = 1;
+    }
+    else
+    {
+        SFTL = 0;
+    }
+
+    if(RTW_Svalve_state == 1)
+    {
+        RWXV = 1;
+    }
+    else
+    {
+        RWXV = 0;
+    }
+
+    if(LTW_Svalve_state == 1)
+    {
+        LWXV = 1;
+    }
+    else
+    {
+        LWXV = 0;
+    }
+
+    if(NOPEN1_Svalve_state == 1)
+    {
+        T1BFV = 1;
+    }
+    else
+    {
+        T1BFV = 0;
+    }
+
+    if(NOPEN2_Svalve_state == 1)
+    {
+        T3BFV = 1;
+    }
+    else
+    {
+        T3BFV = 0;
+    }
+}
 
 #endif

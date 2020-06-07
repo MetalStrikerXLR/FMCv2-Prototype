@@ -18,6 +18,7 @@
 
 uint8 SACT_R[D_COUNT] = {0}, ControlM_R[D_COUNT] = {0}, SAIP_R[D_COUNT] = {0}, SAIR_R[D_COUNT] = {0}, TP13_R[D_COUNT] = {0};
 uint8 TP31_R[D_COUNT] = {0}, SVRW_R[D_COUNT] = {0}, SVLW_R[D_COUNT] = {0}, SV1_R[D_COUNT] = {0}, SV2_R[D_COUNT] = {0}, rxpack[D_COUNT] = {0};
+uint8 Calib_Command[D_COUNT] = {0};
 
 uint8 buffer[D_COUNT]={0};
 
@@ -343,25 +344,71 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
              }
          }
 
+         if(messageBox == canMESSAGE_BOX35)
+         {
+             canGetData(canREG1, canMESSAGE_BOX35, (uint8 * )&Calib_Command[0]);
 
-/*         Serialprintln("Received on CAN1");
-         Serialprintln("");
-         Serialprint_n(rxpack1[0]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[1]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[2]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[3]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[4]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[5]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[6]);
-         Serialprintln("");
-         Serialprint_n(rxpack1[7]);
-         Serialprintln("");*/
+            if(Calib_Command[0] == 1)
+            {
+                updateEEPROM(0x1, Fuel_sen_1);
+            }
+            if(Calib_Command[0] == 2)
+            {
+                updateEEPROM(0x2, Fuel_sen_1);
+            }
+            if(Calib_Command[0] == 3)
+            {
+                updateEEPROM(0x3, Fuel_sen_2);
+            }
+            if(Calib_Command[0] == 4)
+            {
+                updateEEPROM(0x4, Fuel_sen_2);
+            }
+            if(Calib_Command[0] == 5)
+            {
+                updateEEPROM(0x5, Fuel_sen_3);
+            }
+            if(Calib_Command[0] == 6)
+            {
+                updateEEPROM(0x6, Fuel_sen_3);
+            }
+            if(Calib_Command[0] == 7)
+            {
+                updateEEPROM(0x7, Fuel_sen_4);
+            }
+            if(Calib_Command[0] == 8)
+            {
+                updateEEPROM(0x8, Fuel_sen_4);
+            }
+            if(Calib_Command[0] == 9)
+            {
+                updateEEPROM(0x9, Fuel_sen_5);
+            }
+            if(Calib_Command[0] == 10)
+            {
+                updateEEPROM(0xA, Fuel_sen_5);
+            }
+         }
+
+
+//         Serialprintln("Received on CAN1");
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[0]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[1]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[2]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[3]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[4]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[5]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[6]);
+//         Serialprintln("");
+//         Serialprint_n(rxpack1[7]);
+//         Serialprintln("");
      }
      if(node==canREG2)
      {

@@ -4,8 +4,8 @@
 #include "HL_esm.h"
 #include "HL_adc.h"
 
-adcData_t adc_data1[15];
-adcData_t adc_data2[3];
+adcData_t adc_data1[16];
+adcData_t adc_data2[8];
 uint32 ch_count1 = 0;
 uint32 ch_count2 = 0;
 
@@ -21,12 +21,12 @@ int Pres_sen_2_raw = 0;
 int Pres_sen_3_raw = 0;
 int Pres_sen_4_raw = 0;
 
-int TP_1_CF_raw = 0;        //TBD
-int TP_2_CF_raw = 0;        //TBD
-int Svalve_1_CF_raw = 0;    //TBD
-int Svalve_2_CF_raw = 0;    //TBD
-int Svalve_3_CF_raw = 0;    //TBD
-int Svalve_4_CF_raw = 0;    //TBD
+int TP_1_CF_raw = 0;
+int TP_2_CF_raw = 0;
+int Svalve_1_CF_raw = 0;
+int Svalve_2_CF_raw = 0;
+int Svalve_3_CF_raw = 0;
+int Svalve_4_CF_raw = 0;
 
 int MPIN_V1_SF_raw = 0;
 int MPIN_V2_SF_raw = 0;
@@ -49,12 +49,12 @@ float Pres_sen_2 = 0;
 float Pres_sen_3 = 0;
 float Pres_sen_4 = 0;
 
-float TP_1_CF = 0;        //TBD
-float TP_2_CF = 0;        //TBD
-float Svalve_1_CF = 0;    //TBD
-float Svalve_2_CF = 0;    //TBD
-float Svalve_3_CF = 0;    //TBD
-float Svalve_4_CF = 0;    //TBD
+float TP_1_CF = 0;
+float TP_2_CF = 0;
+float Svalve_1_CF = 0;
+float Svalve_2_CF = 0;
+float Svalve_3_CF = 0;
+float Svalve_4_CF = 0;
 
 float MPIN_V1_SF = 0;
 float MPIN_V2_SF = 0;
@@ -82,32 +82,32 @@ void readSensors(int debug, int raw)
     while ((adcIsConversionComplete(adcREG2, adcGROUP1)) == 0);
     ch_count2 = adcGetData(adcREG2, adcGROUP1, &adc_data2[0]);
 
-    Fuel_sen_1_raw = adc_data1[0].value;
-    Fuel_sen_2_raw = adc_data1[1].value;
-    Fuel_sen_3_raw = adc_data1[2].value;
-    Fuel_sen_4_raw = adc_data1[7].value;
-    Fuel_sen_5_raw = adc_data2[1].value;
-    Temp_sen_raw = adc_data1[9].value;
-    Pres_sen_1_raw = adc_data1[3].value;
-    Pres_sen_2_raw = adc_data1[4].value;
-    Pres_sen_3_raw = adc_data1[5].value;
+    Fuel_sen_1_raw = adc_data2[0].value;
+    Fuel_sen_2_raw = adc_data2[2].value;
+    Fuel_sen_3_raw = adc_data2[4].value;
+    Fuel_sen_4_raw = adc_data1[8].value;
+    Fuel_sen_5_raw = adc_data2[6].value;
+    Temp_sen_raw = adc_data1[10].value;
+    Pres_sen_1_raw = adc_data1[0].value;
+    Pres_sen_2_raw = adc_data1[2].value;
+    Pres_sen_3_raw = adc_data1[4].value;
     Pres_sen_4_raw = adc_data1[6].value;
 
-//    TP_1_CF_raw = adc_data1[0].value;        //TBD
-//    TP_2_CF_raw = adc_data1[0].value;        //TBD
-//    Svalve_1_CF_raw = adc_data1[0].value;    //TBD
-//    Svalve_2_CF_raw = adc_data1[0].value;    //TBD
-//    Svalve_3_CF_raw = adc_data1[0].value;    //TBD
-//    Svalve_4_CF_raw = adc_data1[0].value;    //TBD
+    TP_1_CF_raw = adc_data1[1].value;
+    TP_2_CF_raw = adc_data1[3].value;
+    Svalve_1_CF_raw = adc_data1[5].value;
+    Svalve_2_CF_raw = adc_data1[7].value;
+    Svalve_3_CF_raw = adc_data2[1].value;
+    Svalve_4_CF_raw = adc_data2[3].value;
 
-    MPIN_V1_SF_raw = adc_data1[12].value;
-    MPIN_V2_SF_raw = adc_data1[14].value;
-    PS1_OV_SF_raw = adc_data1[10].value;
-    PS2_OV_SF_raw = adc_data1[8].value;
-    PS3_OV_SF_raw = adc_data2[2].value;
-    PS4_OV_SF_raw = adc_data2[0].value;
-    MPIN_C1_SF_raw = adc_data1[13].value;
-    MPIN_C2_SF_raw = adc_data1[11].value;
+    MPIN_V1_SF_raw = adc_data1[13].value;
+    MPIN_V2_SF_raw = adc_data1[15].value;
+    PS1_OV_SF_raw = adc_data1[11].value;
+    PS2_OV_SF_raw = adc_data1[9].value;
+    PS3_OV_SF_raw = adc_data2[7].value;
+    PS4_OV_SF_raw = adc_data2[5].value;
+    MPIN_C1_SF_raw = adc_data1[14].value;
+    MPIN_C2_SF_raw = adc_data1[12].value;
 
     Fuel_sen_1 = (Fuel_sen_1_raw * 5)/1023;
     Fuel_sen_2 = (Fuel_sen_2_raw * 5)/1023;
@@ -120,12 +120,12 @@ void readSensors(int debug, int raw)
     Pres_sen_3 = (Pres_sen_3_raw * 5)/1023;
     Pres_sen_4 = (Pres_sen_4_raw * 5)/1023;
 
-//    TP_1_CF = (TP_1_CF_raw * 5)/1023;        //TBD
-//    TP_2_CF = (TP_2_CF_raw * 5)/1023;        //TBD
-//    Svalve_1_CF = (Svalve_1_CF_raw * 5)/1023;    //TBD
-//    Svalve_2_CF = (Svalve_2_CF_raw * 5)/1023;    //TBD
-//    Svalve_3_CF = (Svalve_3_CF_raw * 5)/1023;    //TBD
-//    Svalve_4_CF = (Svalve_4_CF_raw * 5)/1023;    //TBD
+    TP_1_CF = (TP_1_CF_raw * 5)/1023;
+    TP_2_CF = (TP_2_CF_raw * 5)/1023;
+    Svalve_1_CF = (Svalve_1_CF_raw * 5)/1023;
+    Svalve_2_CF = (Svalve_2_CF_raw * 5)/1023;
+    Svalve_3_CF = (Svalve_3_CF_raw * 5)/1023;
+    Svalve_4_CF = (Svalve_4_CF_raw * 5)/1023;
 
     MPIN_V1_SF = (MPIN_V1_SF_raw * 5)/1023;
     MPIN_V2_SF = (MPIN_V2_SF_raw * 5)/1023;
