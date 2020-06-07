@@ -60,6 +60,7 @@
 #include "HL_sys_dma.h"
 
 /* USER CODE BEGIN (0) */
+
 /* USER CODE END */
 #pragma WEAK(esmGroup1Notification)
 void esmGroup1Notification(esmBASE_t *esm, uint32 channel)

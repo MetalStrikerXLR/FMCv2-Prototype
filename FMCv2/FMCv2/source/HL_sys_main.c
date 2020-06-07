@@ -1,10 +1,15 @@
 #include "HL_sys_common.h"
 #include "HL_system.h"
 #include "serial_com.h"
+#include "systemStatus.h"
 #include "ADC_read.h"
-#include "CAN_com.h"
-#include "manual_control.h"
+#include "EEPROM_control.h"
 #include "data_processor.h"
+#include "digital_control.h"
+#include "fuelFeed.h"
+#include "CAN_com.h"
+
+uint8 test[8] = {1,0,0,0,0,0,0,0};
 
 void main()
 {
@@ -12,30 +17,51 @@ void main()
     initializeCAN();
     initializeADC();
     initializeGIO();
+    initializeNHET();
     initializeRTI();
+    initializeEEPROM();
 
-    canTransmit(canREG1, canMESSAGE_BOX1, (const uint8 *) &tx_data1[0]);
 
     while(1)
     {
-        readSensors(0,1);
-        processFuelData(Fuel_sen_1, Fuel_sen_2, Fuel_sen_3, Fuel_sen_4, Fuel_sen_5);
-        processTempData(Temp_sen);
-        processPresData(Pres_sen_1, Pres_sen_2, Pres_sen_3, Pres_sen_4);
+        if(SACT_status == 1)
+        {
+            readSensors(0,1);
+            readDigitalFeed();
+            processFuelData(Fuel_sen_1, Fuel_sen_2, Fuel_sen_3, Fuel_sen_4, Fuel_sen_5);
+            processTempData(Temp_sen);
+            processPresData(Pres_sen_1, Pres_sen_2, Pres_sen_3, Pres_sen_4);
 
-        generatePackets();
-        transmitPackets();
+            if(ControlM_status == 1 | ControlM_status == 2)
+            {
+                manualControlUpdate();
+            }
+            else
+            {
+                calculateCG();
+                manageBurn();//Burn Sequence
+            }
+
+            generatePackets();
+            updatePackets();
+            transmitPackets();
+            Serialprintln("Transmitted");
+        }
+        else
+        {
+            manualControlUpdate();
+        }
     }
 }
 
 void rtiNotification(rtiBASE_t *rtiREG, uint32 notification)
 {
-    processFuelFlow(counter);
-    counter = 0;
+    processFuelFlow(pulse_counter);
+    pulse_counter = 0;
 }
 
-void gioNotification(gioPORT_t *port, uint32 bit)
+void edgeNotification( hetBASE_t *  hetREG, uint32  edge)
 {
-    counter = counter + 1;
+    pulse_counter = pulse_counter + 1;
 }
 

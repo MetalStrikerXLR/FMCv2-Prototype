@@ -198,7 +198,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0x05U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 1U;
 
@@ -236,7 +236,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0x10U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 3U;
 
@@ -388,7 +388,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0x90U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 11U;
 
@@ -407,7 +407,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA0U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 12U;
 
@@ -426,7 +426,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA1U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 13U;
 
@@ -445,7 +445,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA2U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 14U;
 
@@ -464,7 +464,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xB0U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 15U;
 
@@ -483,7 +483,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xB1U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 16U;
 
@@ -502,7 +502,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xC0U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 17U;
 
@@ -521,7 +521,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xC1U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 18U;
 
@@ -540,7 +540,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xC2U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 19U;
 
@@ -559,7 +559,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xC3U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 20U;
 
@@ -578,7 +578,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA3U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 21U;
 
@@ -597,7 +597,7 @@ void canInit(void)
 
     canREG1->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xC4U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 22U;
 
@@ -616,7 +616,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA4U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 23U;
 
@@ -654,7 +654,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA5U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 25U;
 
@@ -692,7 +692,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA6U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 27U;
 
@@ -730,7 +730,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA7U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 29U;
 
@@ -768,7 +768,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA8U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 31U;
 
@@ -806,7 +806,7 @@ void canInit(void)
 
     canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0xA9U & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF1CMD  = (uint8) 0xF8U;
     canREG1->IF1NO   = 33U;
 
@@ -828,6 +828,25 @@ void canInit(void)
     canREG1->IF2MCTL = 0x00001000U | (uint32)0x00000400U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
     canREG1->IF2CMD  = (uint8) 0xF8U;
     canREG1->IF2NO   = 34U;
+
+    /** - Initialize message 35 
+    *     - Wait until IF1 is ready for use 
+    *     - Set message mask
+    *     - Set message control word
+    *     - Set message arbitration
+    *     - Set IF1 control byte
+    *     - Set IF1 message number
+    */
+    /*SAFETYMCUSW 28 D MR:NA <APPROVED> "Potentially infinite loop found - Hardware Status check for execution sequence" */
+    while ((canREG1->IF1STAT & 0x80U) ==0x80U)
+    { 
+    } /* Wait */
+
+    canREG1->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x00000000U & (uint32)0x1FFFFFFFU) << (uint32)0U);
+    canREG1->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x00000000U | (uint32)((uint32)((uint32)0U & (uint32)0x1FFFFFFFU) << (uint32)0U);
+    canREG1->IF1MCTL = 0x00001000U | (uint32)0x00000400U | (uint32)0x00000200U | (uint32)0x00000000U | (uint32)8U;
+    canREG1->IF1CMD  = (uint8) 0xF8U;
+    canREG1->IF1NO   = 35U;
 
     /** - Setup IF1 for data transmission 
     *     - Wait until IF1 is ready for use 
@@ -997,7 +1016,7 @@ void canInit(void)
 
 
     canREG2->IF1MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG2->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)1U & (uint32)0x1FFFFFFFU) << (uint32)0U);
+    canREG2->IF1ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x20000000U | (uint32)((uint32)((uint32)0x05U & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG2->IF1MCTL = 0x00001000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
     canREG2->IF1CMD  = (uint8) 0xF8U;
     canREG2->IF1NO   = 1U;
@@ -1016,7 +1035,7 @@ void canInit(void)
     } /* Wait */
 
     canREG2->IF2MSK  = 0xC0000000U | (uint32)((uint32)((uint32)0x000007FFU & (uint32)0x1FFFFFFFU) << (uint32)0U);
-    canREG2->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x00000000U | (uint32)((uint32)((uint32)1U & (uint32)0x1FFFFFFFU) << (uint32)0U);
+    canREG2->IF2ARB  = (uint32)0x80000000U | (uint32)0x40000000U | (uint32)0x00000000U | (uint32)((uint32)((uint32)0x05U & (uint32)0x1FFFFFFFU) << (uint32)0U);
     canREG2->IF2MCTL = 0x00001000U | (uint32)0x00000400U | (uint32)0x00000000U | (uint32)0x00000000U | (uint32)8U;
     canREG2->IF2CMD  = (uint8) 0xF8U;
     canREG2->IF2NO   = 2U;
@@ -1049,10 +1068,10 @@ void canInit(void)
     *     - Setup baud rate prescaler
     */
     canREG2->BTR = (uint32)((uint32)0U << 16U) |
-                   (uint32)((uint32)(4U - 1U) << 12U) |
-                   (uint32)((uint32)((6U + 4U) - 1U) << 8U) |
-                   (uint32)((uint32)(4U - 1U) << 6U) |
-                   (uint32)9U;		
+                   (uint32)((uint32)(1U - 1U) << 12U) |
+                   (uint32)((uint32)((8U + 1U) - 1U) << 8U) |
+                   (uint32)((uint32)(1U - 1U) << 6U) |
+                   (uint32)6U;		
 
 
    /** - CAN2 Port output values */
