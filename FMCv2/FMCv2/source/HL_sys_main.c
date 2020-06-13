@@ -20,16 +20,22 @@ void main()
     initializeRTI();
     initializeEEPROM();
 
-
     while(1)
     {
         if(SACT_status == 1)
         {
-            readSensors(0,1);
+            readSensors();
+
+            //displayADC_raw();       // Debug
+            //displayADC_volts();     // Debug
+
             readDigitalFeed();
             processFuelData(Fuel_sen_1, Fuel_sen_2, Fuel_sen_3, Fuel_sen_4, Fuel_sen_5);
             processTempData(Temp_sen);
             processPresData(Pres_sen_1, Pres_sen_2, Pres_sen_3, Pres_sen_4);
+
+            //displaySensor_data();   // Debug
+
             updateSysStatus();
 
             if(ControlM_status == 1 | ControlM_status == 2)
@@ -46,7 +52,6 @@ void main()
             generatePackets();
             updatePackets();
             transmitPackets();
-            Serialprintln("Transmitted");
         }
         else
         {

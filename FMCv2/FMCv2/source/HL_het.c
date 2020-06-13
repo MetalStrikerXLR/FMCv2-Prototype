@@ -1108,7 +1108,7 @@ void hetInit(void)
                   | (uint32)((uint32)0U << 3U)
                   | (uint32)((uint32)0U << 2U)
                   | (uint32)((uint32)0U << 1U)
-                  | (uint32)((uint32)0U << 0U);
+                  | (uint32)((uint32)1U << 0U);
 
     /** - Set HET pins direction */
     hetREG1->DIR = (uint32) 0x00000000U
@@ -1133,7 +1133,7 @@ void hetInit(void)
                  | (uint32) 0x00000000U
                  | (uint32) 0x00000000U
                  | (uint32) 0x00000000U
-                 | (uint32) 0x00000000U
+                 | (uint32) 0x00000200U
                  | (uint32) 0x00000000U
                  | (uint32) 0x00000080U
                  | (uint32) 0x00000000U

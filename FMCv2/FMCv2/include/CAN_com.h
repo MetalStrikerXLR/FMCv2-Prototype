@@ -90,83 +90,103 @@ void updatePackets()
 {
     breakDown(SACT);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX1, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX1, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(ControlM);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX3, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX3, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(STF);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX11, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX11, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(FLSF);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX12, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX12, (const uint8 * )&buffer[0]);
     clearBuffer();
 
 
     breakDown(FLSM);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX13, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX13, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(FLSR);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX14, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX14, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(FLSRW);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX15, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX15, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(FLSLW);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX16, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX16, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(TS_1);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX17, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX17, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(PST13);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX18, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX18, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(PST31);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX19, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX19, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(PSV);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX20, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX20, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(PSMFL);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX21, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX21, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(FFS);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX22, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX22, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(TP13);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX23, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX23, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(TP31);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX25, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX25, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(SVRW);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX27, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX27, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(SVLW);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX29, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX29, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(SV1);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX31, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX31, (const uint8 * )&buffer[0]);
     clearBuffer();
 
     breakDown(SV2);
     canFillMessageObjectData  (canREG1, canMESSAGE_BOX33, (const uint8 * )&buffer[0]);
+    canFillMessageObjectData  (canREG2, canMESSAGE_BOX33, (const uint8 * )&buffer[0]);
     clearBuffer();
 }
 
@@ -174,18 +194,22 @@ void transmitPackets()
 {
     breakDown(SIPH);
     canTransmit(canREG1, canMESSAGE_BOX5, (const uint8 *)&buffer[0]);
+    canTransmit(canREG2, canMESSAGE_BOX5, (const uint8 *)&buffer[0]);
     clearBuffer();
 
     breakDown(SIPL);
+    canTransmit(canREG1, canMESSAGE_BOX6, (const uint8 *)&buffer[0]);
     canTransmit(canREG2, canMESSAGE_BOX6, (const uint8 *)&buffer[0]);
     clearBuffer();
 
     breakDown(SSIH);
     canTransmit(canREG1, canMESSAGE_BOX7, (const uint8 *)&buffer[0]);
+    canTransmit(canREG2, canMESSAGE_BOX7, (const uint8 *)&buffer[0]);
     clearBuffer();
 
     breakDown(SSIL);
     canTransmit(canREG1, canMESSAGE_BOX8, (const uint8 *)&buffer[0]);
+    canTransmit(canREG2, canMESSAGE_BOX8, (const uint8 *)&buffer[0]);
     clearBuffer();
 }
 
@@ -390,48 +414,187 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
             }
          }
 
-
-//         Serialprintln("Received on CAN1");
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[0]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[1]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[2]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[3]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[4]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[5]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[6]);
-//         Serialprintln("");
-//         Serialprint_n(rxpack1[7]);
-//         Serialprintln("");
      }
      if(node==canREG2)
      {
-/*         canGetData(canREG2, canMESSAGE_BOX2, (uint8 * )&rxpack[0]);
+         if(messageBox == canMESSAGE_BOX2)
+          {
+              canGetData(canREG2, canMESSAGE_BOX2, (uint8 * )&SACT_R[0]);
 
-         Serialprintln("Received on CAN2");
-         Serialprintln("");
-         Serialprint_n(rxpack[0]);
-         Serialprintln("");
-         Serialprint_n(rxpack[1]);
-         Serialprintln("");
-         Serialprint_n(rxpack[2]);
-         Serialprintln("");
-         Serialprint_n(rxpack[3]);
-         Serialprintln("");
-         Serialprint_n(rxpack[4]);
-         Serialprintln("");
-         Serialprint_n(rxpack[5]);
-         Serialprintln("");
-         Serialprint_n(rxpack[6]);
-         Serialprintln("");
-         Serialprint_n(rxpack[7]);
-         Serialprintln("");*/
+              if(SACT_R[0] == 1)
+              {
+                  SACT_status = 1;
+              }
+              else if(SACT_R[0] == 0)
+              {
+                  SACT_status = 0;
+                  M_FTRP_State = 0;
+                  M_RTFP_State = 0;
+              }
+              else
+              {
+                  // Wrong Input Command
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX4)
+          {
+              canGetData(canREG2, canMESSAGE_BOX4, (uint8 * )&ControlM_R[0]);
+
+              if(ControlM_R[0] == 0)
+              {
+                  ControlM_status = 0; // Autonomus
+                  M_FTRP_State = 0;
+                  M_RTFP_State = 0;
+                  M_LTWS_State = 0;
+                  M_RTWS_State = 0;
+                  M_NO1S_State = 0;
+                  M_NO2S_State = 0;
+              }
+              else if(ControlM_R[0] == 1)
+              {
+                  ControlM_status = 1; // Manual
+                  M_FTRP_State = 0;
+                  M_RTFP_State = 0;
+                  M_LTWS_State = 0;
+                  M_RTWS_State = 0;
+                  M_NO1S_State = 0;
+                  M_NO2S_State = 0;
+              }
+              else if(ControlM_R[0] == 2)
+              {
+                  ControlM_status = 2; // Fail Safe - Open all Solenoid Valves
+                  M_FTRP_State = 0;
+                  M_RTFP_State = 0;
+                  M_LTWS_State = 1;
+                  M_RTWS_State = 1;
+                  M_NO1S_State = 1;
+                  M_NO2S_State = 1;
+              }
+              else
+              {
+                  // Wrong Input Command
+              }
+
+          }
+
+          if(messageBox == canMESSAGE_BOX9)
+          {
+              canGetData(canREG2, canMESSAGE_BOX9, (uint8 * )&SAIP_R[0]);
+              pitch = SAIP_R[0];
+          }
+
+          if(messageBox == canMESSAGE_BOX10)
+          {
+              canGetData(canREG2, canMESSAGE_BOX10, (uint8 * )&SAIR_R[0]);
+              roll = SAIR_R[0];
+          }
+
+          if(messageBox == canMESSAGE_BOX24)
+          {
+              canGetData(canREG2, canMESSAGE_BOX24, (uint8 * )&TP13_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_FTRP_State = TP13_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX26)
+          {
+              canGetData(canREG2, canMESSAGE_BOX26, (uint8 * )&TP31_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_RTFP_State = TP31_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX28)
+          {
+              canGetData(canREG2, canMESSAGE_BOX28, (uint8 * )&SVRW_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_RTWS_State = SVRW_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX30)
+          {
+              canGetData(canREG2, canMESSAGE_BOX30, (uint8 * )&SVLW_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_LTWS_State = SVLW_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX32)
+          {
+              canGetData(canREG2, canMESSAGE_BOX32, (uint8 * )&SV1_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_NO1S_State = SV1_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX34)
+          {
+              canGetData(canREG2, canMESSAGE_BOX34, (uint8 * )&SV2_R[0]);
+
+              if(ControlM_status == 1)
+              {
+                  M_NO2S_State = SV2_R[0];
+              }
+          }
+
+          if(messageBox == canMESSAGE_BOX35)
+          {
+              canGetData(canREG2, canMESSAGE_BOX35, (uint8 * )&Calib_Command[0]);
+
+             if(Calib_Command[0] == 1)
+             {
+                 updateEEPROM(0x1, Fuel_sen_1);
+             }
+             if(Calib_Command[0] == 2)
+             {
+                 updateEEPROM(0x2, Fuel_sen_1);
+             }
+             if(Calib_Command[0] == 3)
+             {
+                 updateEEPROM(0x3, Fuel_sen_2);
+             }
+             if(Calib_Command[0] == 4)
+             {
+                 updateEEPROM(0x4, Fuel_sen_2);
+             }
+             if(Calib_Command[0] == 5)
+             {
+                 updateEEPROM(0x5, Fuel_sen_3);
+             }
+             if(Calib_Command[0] == 6)
+             {
+                 updateEEPROM(0x6, Fuel_sen_3);
+             }
+             if(Calib_Command[0] == 7)
+             {
+                 updateEEPROM(0x7, Fuel_sen_4);
+             }
+             if(Calib_Command[0] == 8)
+             {
+                 updateEEPROM(0x8, Fuel_sen_4);
+             }
+             if(Calib_Command[0] == 9)
+             {
+                 updateEEPROM(0x9, Fuel_sen_5);
+             }
+             if(Calib_Command[0] == 10)
+             {
+                 updateEEPROM(0xA, Fuel_sen_5);
+             }
+          }
      }
 }
 

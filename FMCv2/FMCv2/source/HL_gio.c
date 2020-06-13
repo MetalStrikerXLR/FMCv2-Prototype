@@ -139,7 +139,7 @@ void gioInit(void)
                    | (uint32)((uint32)0U << 3U)  /* Bit 3 */
                    | (uint32)((uint32)0U << 4U)  /* Bit 4 */
                    | (uint32)((uint32)0U << 5U)  /* Bit 5 */
-                   | (uint32)((uint32)1U << 6U)  /* Bit 6 */
+                   | (uint32)((uint32)0U << 6U)  /* Bit 6 */
                    | (uint32)((uint32)1U << 7U); /* Bit 7 */
 
     /** - Port B open drain enable */
@@ -235,7 +235,7 @@ void gioInit(void)
                    | (uint32)((uint32)0U << 11U)  /* Bit 11 */
                    | (uint32)((uint32)0U << 12U)  /* Bit 12 */
                    | (uint32)((uint32)0U << 13U)  /* Bit 13 */
-                   | (uint32)((uint32)1U << 14U)  /* Bit 14 */
+                   | (uint32)((uint32)0U << 14U)  /* Bit 14 */
                    | (uint32)((uint32)1U << 15U); /* Bit 15 */
 
 /* USER CODE BEGIN (4) */

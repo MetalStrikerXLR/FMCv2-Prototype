@@ -72,7 +72,7 @@ void initializeADC()
     adcInit();
 }
 
-void readSensors(int debug, int raw)
+void readSensors()
 {
     adcStartConversion(adcREG1, adcGROUP1);
     while ((adcIsConversionComplete(adcREG1, adcGROUP1)) == 0);
@@ -109,120 +109,222 @@ void readSensors(int debug, int raw)
     MPIN_C1_SF_raw = adc_data1[14].value;
     MPIN_C2_SF_raw = adc_data1[12].value;
 
-    Fuel_sen_1 = (Fuel_sen_1_raw * 5)/1023;
-    Fuel_sen_2 = (Fuel_sen_2_raw * 5)/1023;
-    Fuel_sen_3 = (Fuel_sen_3_raw * 5)/1023;
-    Fuel_sen_4 = (Fuel_sen_4_raw * 5)/1023;
-    Fuel_sen_5 = (Fuel_sen_5_raw * 5)/1023;
-    Temp_sen = (Temp_sen_raw * 5)/1023;
-    Pres_sen_1 = (Pres_sen_1_raw * 5)/1023;
-    Pres_sen_2 = (Pres_sen_2_raw * 5)/1023;
-    Pres_sen_3 = (Pres_sen_3_raw * 5)/1023;
-    Pres_sen_4 = (Pres_sen_4_raw * 5)/1023;
+    Fuel_sen_1 = (Fuel_sen_1_raw * 5.00)/1023.00;
+    Fuel_sen_2 = (Fuel_sen_2_raw * 5.00)/1023.00;
+    Fuel_sen_3 = (Fuel_sen_3_raw * 5.00)/1023.00;
+    Fuel_sen_4 = (Fuel_sen_4_raw * 5.00)/1023.00;
+    Fuel_sen_5 = (Fuel_sen_5_raw * 5.00)/1023.00;
+    Temp_sen = (Temp_sen_raw * 5.00)/1023.00;
+    Pres_sen_1 = (Pres_sen_1_raw * 5.00)/1023.00;
+    Pres_sen_2 = (Pres_sen_2_raw * 5.00)/1023.00;
+    Pres_sen_3 = (Pres_sen_3_raw * 5.00)/1023.00;
+    Pres_sen_4 = (Pres_sen_4_raw * 5.00)/1023.00;
 
-    TP_1_CF = (TP_1_CF_raw * 5)/1023;
-    TP_2_CF = (TP_2_CF_raw * 5)/1023;
-    Svalve_1_CF = (Svalve_1_CF_raw * 5)/1023;
-    Svalve_2_CF = (Svalve_2_CF_raw * 5)/1023;
-    Svalve_3_CF = (Svalve_3_CF_raw * 5)/1023;
-    Svalve_4_CF = (Svalve_4_CF_raw * 5)/1023;
+    TP_1_CF = (TP_1_CF_raw * 5.00)/1023.00;
+    TP_2_CF = (TP_2_CF_raw * 5.00)/1023.00;
+    Svalve_1_CF = (Svalve_1_CF_raw * 5.00)/1023.00;
+    Svalve_2_CF = (Svalve_2_CF_raw * 5.00)/1023.00;
+    Svalve_3_CF = (Svalve_3_CF_raw * 5.00)/1023.00;
+    Svalve_4_CF = (Svalve_4_CF_raw * 5.00)/1023.00;
 
-    MPIN_V1_SF = (MPIN_V1_SF_raw * 5)/1023;
-    MPIN_V2_SF = (MPIN_V2_SF_raw * 5)/1023;
-    PS1_OV_SF = (PS1_OV_SF_raw * 5)/1023;
-    PS2_OV_SF = (PS2_OV_SF_raw * 5)/1023;
-    PS3_OV_SF = (PS3_OV_SF_raw * 5)/1023;
-    PS4_OV_SF = (PS4_OV_SF_raw * 5)/1023;
-    MPIN_C1_SF = (MPIN_C1_SF_raw * 5)/1023;
-    MPIN_C2_SF = (MPIN_C2_SF_raw * 5)/1023;
-
-    if(debug == 1)
-    {
-        if(raw == 1)
-        {
-            Serialprint("Number of Channels ADC1: ");
-            Serialprint_n(ch_count1);
-            Serialprintln("");
-            Serialprint("Number of Channels ADC2: ");
-            Serialprint_n(ch_count2);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 1: ");
-            Serialprint_n(Fuel_sen_1_raw);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 2: ");
-            Serialprint_n(Fuel_sen_2_raw);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 3: ");
-            Serialprint_n(Fuel_sen_3_raw);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 4: ");
-            Serialprint_n(Fuel_sen_4_raw);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 5: ");
-            Serialprint_n(Fuel_sen_5_raw);
-            Serialprintln("");
-            Serialprint("Temperature Sensor: ");
-            Serialprint_n(Temp_sen_raw);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 1: ");
-            Serialprint_n(Pres_sen_1_raw);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 2: ");
-            Serialprint_n(Pres_sen_2_raw);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 3: ");
-            Serialprint_n(Pres_sen_3_raw);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 4: ");
-            Serialprint_n(Pres_sen_4_raw);
-            Serialprintln("");
-
-            Serialprintln("");
-        }
-        else
-        {
-            Serialprint("Number of Channels ADC1: ");
-            Serialprint_n(ch_count1);
-            Serialprintln("");
-            Serialprint("Number of Channels ADC2: ");
-            Serialprint_n(ch_count2);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 1: ");
-            Serialprint_n(Fuel_sen_1);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 2: ");
-            Serialprint_n(Fuel_sen_2);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 3: ");
-            Serialprint_n(Fuel_sen_3);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 4: ");
-            Serialprint_n(Fuel_sen_4);
-            Serialprintln("");
-            Serialprint("Fuel Sensor 5: ");
-            Serialprint_n(Fuel_sen_5);
-            Serialprintln("");
-            Serialprint("Temperature Sensor: ");
-            Serialprint_n(Temp_sen);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 1: ");
-            Serialprint_n(Pres_sen_1);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 2: ");
-            Serialprint_n(Pres_sen_2);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 3: ");
-            Serialprint_n(Pres_sen_3);
-            Serialprintln("");
-            Serialprint("Pressure Sensor 4: ");
-            Serialprint_n(Pres_sen_4);
-            Serialprintln("");
-
-            Serialprintln("");
-        }
-    }
+    MPIN_V1_SF = (MPIN_V1_SF_raw * 5.00)/1023.00;
+    MPIN_V2_SF = (MPIN_V2_SF_raw * 5.00)/1023.00;
+    PS1_OV_SF = (PS1_OV_SF_raw * 5.00)/1023.00;
+    PS2_OV_SF = (PS2_OV_SF_raw * 5.00)/1023.00;
+    PS3_OV_SF = (PS3_OV_SF_raw * 5.00)/1023.00;
+    PS4_OV_SF = (PS4_OV_SF_raw * 5.00)/1023.00;
+    MPIN_C1_SF = (MPIN_C1_SF_raw * 5.00)/1023.00;
+    MPIN_C2_SF = (MPIN_C2_SF_raw * 5.00)/1023.00;
 
     wait(0xFFFFF);
+}
+
+void displayADC_raw()
+{
+    Serialprint("Number of Channels ADC1: ");
+    Serialprint_n(ch_count1);
+    Serialprintln("");
+    Serialprint("Number of Channels ADC2: ");
+    Serialprint_n(ch_count2);
+    Serialprintln("");
+    Serialprintln("");
+
+    Serialprintln("Sensors:");
+    Serialprintln("");
+
+    Serialprint("Fuel Sensor 1: ");
+    Serialprint_n(Fuel_sen_1_raw);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 2: ");
+    Serialprint_n(Fuel_sen_2_raw);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 3: ");
+    Serialprint_n(Fuel_sen_3_raw);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 4: ");
+    Serialprint_n(Fuel_sen_4_raw);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 5: ");
+    Serialprint_n(Fuel_sen_5_raw);
+    Serialprintln("");
+    Serialprint("Temperature Sensor: ");
+    Serialprint_n(Temp_sen_raw);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 1: ");
+    Serialprint_n(Pres_sen_1_raw);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 2: ");
+    Serialprint_n(Pres_sen_2_raw);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 3: ");
+    Serialprint_n(Pres_sen_3_raw);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 4: ");
+    Serialprint_n(Pres_sen_4_raw);
+    Serialprintln("");
+    Serialprintln("");
+
+    Serialprintln("Feedbacks:");
+    Serialprintln("");
+
+    Serialprint("Pump 1 Current Feedback: ");
+    Serialprint_n(TP_1_CF_raw);
+    Serialprintln("");
+    Serialprint("Pump 2 current Feedback: ");
+    Serialprint_n(TP_2_CF_raw);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 1 Current Feedback: ");
+    Serialprint_n(Svalve_1_CF_raw);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 2 Current Feedback: ");
+    Serialprint_n(Svalve_2_CF_raw);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 3 Current Feedback: ");
+    Serialprint_n(Svalve_3_CF_raw);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 4 Current Feedback: ");
+    Serialprint_n(Svalve_4_CF_raw);
+    Serialprintln("");
+    Serialprint("Main Power 1 Sense Feedback: ");
+    Serialprint_n(MPIN_V1_SF_raw);
+    Serialprintln("");
+    Serialprint("Main Power 2 Sense Feedback: ");
+    Serialprint_n(MPIN_V2_SF_raw);
+    Serialprintln("");
+    Serialprint("Power Supply 1 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS1_OV_SF_raw);
+    Serialprintln("");
+    Serialprint("Power Supply 2 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS2_OV_SF_raw);
+    Serialprintln("");
+    Serialprint("Power Supply 3 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS3_OV_SF_raw);
+    Serialprintln("");
+    Serialprint("Power Supply 4 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS4_OV_SF_raw);
+    Serialprintln("");
+    Serialprint("Main Power In 1 Current Sense Feedback: ");
+    Serialprint_n(MPIN_C1_SF_raw);
+    Serialprintln("");
+    Serialprint("Main Power In 2 Current Sense Feedback ");
+    Serialprint_n(MPIN_C2_SF_raw);
+    Serialprintln("");
+
+    Serialprintln("");
+}
+
+void displayADC_volts()
+{
+    Serialprint("Number of Channels ADC1: ");
+    Serialprint_n(ch_count1);
+    Serialprintln("");
+    Serialprint("Number of Channels ADC2: ");
+    Serialprint_n(ch_count2);
+    Serialprintln("");
+    Serialprintln("");
+
+    Serialprintln("Sensors:");
+    Serialprintln("");
+
+    Serialprint("Fuel Sensor 1: ");
+    Serialprint_n(Fuel_sen_1);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 2: ");
+    Serialprint_n(Fuel_sen_2);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 3: ");
+    Serialprint_n(Fuel_sen_3);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 4: ");
+    Serialprint_n(Fuel_sen_4);
+    Serialprintln("");
+    Serialprint("Fuel Sensor 5: ");
+    Serialprint_n(Fuel_sen_5);
+    Serialprintln("");
+    Serialprint("Temperature Sensor: ");
+    Serialprint_n(Temp_sen);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 1: ");
+    Serialprint_n(Pres_sen_1);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 2: ");
+    Serialprint_n(Pres_sen_2);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 3: ");
+    Serialprint_n(Pres_sen_3);
+    Serialprintln("");
+    Serialprint("Pressure Sensor 4: ");
+    Serialprint_n(Pres_sen_4);
+    Serialprintln("");
+    Serialprintln("");
+
+    Serialprintln("Feedbacks:");
+    Serialprintln("");
+
+    Serialprint("Pump 1 Current Feedback: ");
+    Serialprint_n(TP_1_CF);
+    Serialprintln("");
+    Serialprint("Pump 2 current Feedback: ");
+    Serialprint_n(TP_2_CF);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 1 Current Feedback: ");
+    Serialprint_n(Svalve_1_CF);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 2 Current Feedback: ");
+    Serialprint_n(Svalve_2_CF);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 3 Current Feedback: ");
+    Serialprint_n(Svalve_3_CF);
+    Serialprintln("");
+    Serialprint("Solenoid Valve 4 Current Feedback: ");
+    Serialprint_n(Svalve_4_CF);
+    Serialprintln("");
+    Serialprint("Main Power 1 Sense Feedback: ");
+    Serialprint_n(MPIN_V1_SF);
+    Serialprintln("");
+    Serialprint("Main Power 2 Sense Feedback: ");
+    Serialprint_n(MPIN_V2_SF);
+    Serialprintln("");
+    Serialprint("Power Supply 1 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS1_OV_SF);
+    Serialprintln("");
+    Serialprint("Power Supply 2 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS2_OV_SF);
+    Serialprintln("");
+    Serialprint("Power Supply 3 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS3_OV_SF);
+    Serialprintln("");
+    Serialprint("Power Supply 4 Output Voltage Sense Feedback: ");
+    Serialprint_n(PS4_OV_SF);
+    Serialprintln("");
+    Serialprint("Main Power In 1 Current Sense Feedback: ");
+    Serialprint_n(MPIN_C1_SF);
+    Serialprintln("");
+    Serialprint("Main Power In 2 Current Sense Feedback ");
+    Serialprint_n(MPIN_C2_SF);
+    Serialprintln("");
+
+    Serialprintln("");
 }
 
 void wait(uint32 time)
