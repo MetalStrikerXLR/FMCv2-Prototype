@@ -51,7 +51,6 @@ void main()
 
             generatePackets();
             updatePackets();
-            transmitPackets();
         }
         else
         {
@@ -62,8 +61,19 @@ void main()
 
 void rtiNotification(rtiBASE_t *rtiREG, uint32 notification)
 {
-    processFuelFlow(pulse_counter);
-    pulse_counter = 0;
+    if(SACT_status == 1)
+    {
+        if(notification==rtiNOTIFICATION_COMPARE1)
+        {
+            //transmitPackets();
+        }
+    }
+
+    if(notification==rtiNOTIFICATION_COMPARE0)
+    {
+        processFuelFlow(pulse_counter);
+        pulse_counter = 0;
+    }
 }
 
 void edgeNotification( hetBASE_t *  hetREG, uint32  edge)

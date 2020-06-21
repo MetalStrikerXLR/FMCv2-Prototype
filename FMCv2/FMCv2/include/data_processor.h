@@ -57,6 +57,7 @@ void initializeRTI()
 {
     rtiInit();
     rtiEnableNotification(rtiREG1,rtiNOTIFICATION_COMPARE0);
+    rtiEnableNotification(rtiREG1,rtiNOTIFICATION_COMPARE1);
     rtiStartCounter(rtiREG1,rtiCOUNTER_BLOCK0);
 }
 
@@ -100,9 +101,6 @@ void processPresData(float psen1_v, float psen2_v, float psen3_v, float psen4_v)
     REAR_to_FWD_pres = 10.00 * (psen2_v - 1.00);
     VENT_Sen_pres = 10.00 * (psen3_v - 1.00);
     MAIN_Flow_pres = 10.00 * (psen4_v - 1.00);
-
-    Serialprint_n(FWD_to_REAR_pres);
-    Serialprintln("");
 }
 
 void processFuelFlow(int pulses)

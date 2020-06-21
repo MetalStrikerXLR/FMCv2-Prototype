@@ -233,11 +233,23 @@ void clearBuffer()
 
 void canMessageNotification(canBASE_t *node, uint32 messageBox)
 {
+    Serialprintln("interrupt 1");
      if(node==canREG1)
      {
          if(messageBox == canMESSAGE_BOX2)
          {
              canGetData(canREG1, canMESSAGE_BOX2, (uint8 * )&SACT_R[0]);
+             Serialprintln("SACT Received");
+             Serialprint_n(SACT_R[0]);
+             Serialprint_n(SACT_R[1]);
+             Serialprint_n(SACT_R[2]);
+             Serialprint_n(SACT_R[3]);
+             Serialprint_n(SACT_R[4]);
+             Serialprint_n(SACT_R[5]);
+             Serialprint_n(SACT_R[6]);
+             Serialprint_n(SACT_R[7]);
+             Serialprintln("");
+
 
              if(SACT_R[0] == 1)
              {
@@ -415,8 +427,11 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          }
 
      }
+
      if(node==canREG2)
      {
+         Serialprintln("interrupt 1");
+
          if(messageBox == canMESSAGE_BOX2)
           {
               canGetData(canREG2, canMESSAGE_BOX2, (uint8 * )&SACT_R[0]);
