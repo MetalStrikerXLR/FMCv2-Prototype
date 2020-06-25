@@ -22,7 +22,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.TMS570LC43xx.ccxml.Texas Instruments XDS100v2 USB Debug Probe/CortexR5" value="${build_artifact:FMCv2}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.TMS570LC43xx.ccxml.Texas Instruments XDS100v2 USB Debug Probe/CortexR5" value="FMCv2"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:FMCv2}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS570LC43xx.ccxml.Texas Instruments XDS100v2 USB Debug Probe/CortexR5" value="E:/Projects\Texas\fmcv2-main-code\FMCv2\Debug\FMCv2.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS570LC43xx.ccxml.Texas Instruments XDS100v2 USB Debug Probe/CortexR5" value="E:/Projects\Texas\fmcv2-main-code\FMCv2\Release\FMCv2.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/FMCv2"/>
 </listAttribute>

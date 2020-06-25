@@ -65,7 +65,7 @@ void rtiNotification(rtiBASE_t *rtiREG, uint32 notification)
     {
         if(notification==rtiNOTIFICATION_COMPARE1)
         {
-            //transmitPackets();
+            transmitPackets();
         }
     }
 

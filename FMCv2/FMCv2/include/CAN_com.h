@@ -233,23 +233,11 @@ void clearBuffer()
 
 void canMessageNotification(canBASE_t *node, uint32 messageBox)
 {
-    Serialprintln("interrupt 1");
      if(node==canREG1)
      {
          if(messageBox == canMESSAGE_BOX2)
          {
              canGetData(canREG1, canMESSAGE_BOX2, (uint8 * )&SACT_R[0]);
-             Serialprintln("SACT Received");
-             Serialprint_n(SACT_R[0]);
-             Serialprint_n(SACT_R[1]);
-             Serialprint_n(SACT_R[2]);
-             Serialprint_n(SACT_R[3]);
-             Serialprint_n(SACT_R[4]);
-             Serialprint_n(SACT_R[5]);
-             Serialprint_n(SACT_R[6]);
-             Serialprint_n(SACT_R[7]);
-             Serialprintln("");
-
 
              if(SACT_R[0] == 1)
              {
@@ -271,7 +259,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX4, (uint8 * )&ControlM_R[0]);
 
-             if(ControlM_R[0] == 0)
+             if(ControlM_R[0] == 0 && SACT_status == 1)
              {
                  ControlM_status = 0; // Autonomus
                  M_FTRP_State = 0;
@@ -281,7 +269,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
                  M_NO1S_State = 0;
                  M_NO2S_State = 0;
              }
-             else if(ControlM_R[0] == 1)
+             else if(ControlM_R[0] == 1 && SACT_status == 1)
              {
                  ControlM_status = 1; // Manual
                  M_FTRP_State = 0;
@@ -291,7 +279,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
                  M_NO1S_State = 0;
                  M_NO2S_State = 0;
              }
-             else if(ControlM_R[0] == 2)
+             else if(ControlM_R[0] == 2 && SACT_status == 1)
              {
                  ControlM_status = 2; // Fail Safe - Open all Solenoid Valves
                  M_FTRP_State = 0;
@@ -324,7 +312,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX24, (uint8 * )&TP13_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_FTRP_State = TP13_R[0];
              }
@@ -334,7 +322,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX26, (uint8 * )&TP31_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_RTFP_State = TP31_R[0];
              }
@@ -344,7 +332,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX28, (uint8 * )&SVRW_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_RTWS_State = SVRW_R[0];
              }
@@ -354,7 +342,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX30, (uint8 * )&SVLW_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_LTWS_State = SVLW_R[0];
              }
@@ -364,7 +352,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX32, (uint8 * )&SV1_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_NO1S_State = SV1_R[0];
              }
@@ -374,7 +362,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
          {
              canGetData(canREG1, canMESSAGE_BOX34, (uint8 * )&SV2_R[0]);
 
-             if(ControlM_status == 1)
+             if(ControlM_status == 1 && SACT_status == 1)
              {
                  M_NO2S_State = SV2_R[0];
              }
@@ -430,8 +418,6 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
 
      if(node==canREG2)
      {
-         Serialprintln("interrupt 1");
-
          if(messageBox == canMESSAGE_BOX2)
           {
               canGetData(canREG2, canMESSAGE_BOX2, (uint8 * )&SACT_R[0]);
@@ -439,6 +425,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
               if(SACT_R[0] == 1)
               {
                   SACT_status = 1;
+                  ControlM_status = 0;
               }
               else if(SACT_R[0] == 0)
               {
@@ -456,7 +443,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX4, (uint8 * )&ControlM_R[0]);
 
-              if(ControlM_R[0] == 0)
+              if(ControlM_R[0] == 0 && SACT_status == 1)
               {
                   ControlM_status = 0; // Autonomus
                   M_FTRP_State = 0;
@@ -466,7 +453,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
                   M_NO1S_State = 0;
                   M_NO2S_State = 0;
               }
-              else if(ControlM_R[0] == 1)
+              else if(ControlM_R[0] == 1 && SACT_status == 1)
               {
                   ControlM_status = 1; // Manual
                   M_FTRP_State = 0;
@@ -476,7 +463,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
                   M_NO1S_State = 0;
                   M_NO2S_State = 0;
               }
-              else if(ControlM_R[0] == 2)
+              else if(ControlM_R[0] == 2 && SACT_status == 1)
               {
                   ControlM_status = 2; // Fail Safe - Open all Solenoid Valves
                   M_FTRP_State = 0;
@@ -509,7 +496,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX24, (uint8 * )&TP13_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_FTRP_State = TP13_R[0];
               }
@@ -519,7 +506,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX26, (uint8 * )&TP31_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_RTFP_State = TP31_R[0];
               }
@@ -529,7 +516,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX28, (uint8 * )&SVRW_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_RTWS_State = SVRW_R[0];
               }
@@ -539,7 +526,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX30, (uint8 * )&SVLW_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_LTWS_State = SVLW_R[0];
               }
@@ -549,7 +536,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX32, (uint8 * )&SV1_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_NO1S_State = SV1_R[0];
               }
@@ -559,7 +546,7 @@ void canMessageNotification(canBASE_t *node, uint32 messageBox)
           {
               canGetData(canREG2, canMESSAGE_BOX34, (uint8 * )&SV2_R[0]);
 
-              if(ControlM_status == 1)
+              if(ControlM_status == 1 && SACT_status == 1)
               {
                   M_NO2S_State = SV2_R[0];
               }
